@@ -16,8 +16,9 @@ public class Decoder {
 
 	public byte[] decode() {
 
+		int length = 0;
 		byte byteArrayInput[] = new byte[fileSize];
-		int offset = 44;
+		int offset = 76;
 
 		try{
 			//Open the file, read all the bytes and place into byteArrayInput
@@ -25,7 +26,11 @@ public class Decoder {
 			in.read(byteArrayInput, 0, fileSize);
 			in.close();
 			
-			byte[] result = new byte[6];
+			for(int i = 44; i < 76; ++i) {
+				length = (length << 1) | (byteArrayInput[i] & 1);
+			}
+			
+			byte[] result = new byte[length];
 			
 			for(int b = 0; b < result.length; ++b) {
 				for(int i = 0; i < 8; ++i, ++offset) {

@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		
-		String message = "pixota";
+		String message = "pixota para a tua mae na boca";
 		File fileInput = new File("C:/Users/veryc/Downloads/teste.wav");
 		File fileOutput = new File("C:/Users/veryc/Downloads/teste1.wav");
 		
